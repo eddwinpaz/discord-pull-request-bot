@@ -4,7 +4,7 @@ import crypto from 'crypto'
 import fs from 'fs/promises'
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const TOKEN = ""
+const TOKEN = "MTE3Njc0NTMwMzg0ODc4ODA0OA.G7fBaX.goIyaWZ2Y7kawdz1KyJGrZd5mlFk9c2TmZGAcs"
 
 async function takeScreenshot(url) {
     try {
@@ -75,7 +75,7 @@ client.on('interactionCreate', async interaction => {
         }
     }
 
-    if (interaction.commandName === 'pr-approve-front') {
+    if (interaction.commandName === 'approve-front') {
         await interaction.deferReply()
         try {
             const prNumber = interaction.options.getInteger('number');
@@ -93,7 +93,7 @@ client.on('interactionCreate', async interaction => {
         }
     }
 
-    if (interaction.commandName === 'pr-approve-back') {
+    if (interaction.commandName === 'approve-back') {
         await interaction.deferReply()
         try {
             const prNumber = interaction.options.getInteger('number');

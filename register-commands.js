@@ -1,7 +1,7 @@
 import { REST, Routes } from 'discord.js';
 
-const TOKEN = "MTE3Njc0NTMwMzg0ODc4ODA0OA.GTK3KE.g2KGsgcX2ilTFT-LBTZWfWGyXAmZAK54bMfbA0"
-const CLIENT_ID = "1176745303848788048"
+const TOKEN = process.env.TOKEN
+const CLIENT_ID = process.env.APP_ID
 
 const commands = [
   {
@@ -13,7 +13,7 @@ const commands = [
     description: 'Replies with screenshot of all pull requests from backend!',
   },
   {
-    name: 'pr-tl-approve-front',
+    name: 'approve-front',
     description: 'Approves a Pull request as your Technical Lead. (Be wise)!!!',
     options: [
       {
@@ -25,7 +25,7 @@ const commands = [
     ]
   },
   {
-    name: 'pr-tl-approve-back',
+    name: 'approve-back',
     description: 'Approves a Pull request as your Technical Lead. (Be wise)!!!',
     options: [
       {
