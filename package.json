@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dc:start": "node index.js",
-    "dc:register": "node register-commands.js"
+    "dc:register": "node register-commands.js",
+    "dc:credentials": "node credentials.js"
+
   },
   "author": "",
   "license": "ISC",
