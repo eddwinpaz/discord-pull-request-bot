@@ -1,3 +1,5 @@
+import puppeteer from 'puppeteer';
+
 async function takeScreenshot(url) {
     try {
         const browser = await puppeteer.launch({ headless: "false", userDataDir: `/Users/${process.env.MACHINE_NAME}}/Library/Application Support/Google/Chrome/Default'`});
