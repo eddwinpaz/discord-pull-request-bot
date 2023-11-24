@@ -23,7 +23,7 @@ async function takeScreenshot(url) {
 
 async function clickElementByXPath(url, selector, buttonText) {
     
-    const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}}/Library/Application Support/Google/Chrome/Default'`});
+    const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}/Library/Application Support/Google/Chrome/Default'`});
     const page = await browser.newPage();
     await page.goto(url);
     const elements = await page.$$(selector);
