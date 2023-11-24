@@ -9,7 +9,7 @@ const TOKEN = process.env.TOKEN
 async function takeScreenshot(url) {
     try {
         const filename = `screen_${crypto.randomBytes(16).toString('hex')}.png`
-        const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}}/Library/Application Support/Google/Chrome/Default'`});
+        const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}}/Library/Application Support/Google/Chrome/Default'` });
         const page = await browser.newPage();
         await page.goto(url);
         await page.screenshot({ path: filename });
@@ -22,8 +22,8 @@ async function takeScreenshot(url) {
 }
 
 async function clickElementByXPath(url, selector, buttonText) {
-    
-    const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}/Library/Application Support/Google/Chrome/Default'`});
+
+    const browser = await puppeteer.launch({ headless: "true", userDataDir: `/Users/${process.env.MACHINE_NAME}/Library/Application Support/Google/Chrome/Default'` });
     const page = await browser.newPage();
     await page.goto(url);
     const elements = await page.$$(selector);
@@ -50,7 +50,7 @@ client.on('interactionCreate', async interaction => {
         try {
             const url = "https://dev.azure.com/MetLife-Global/Chile%20Digital%20Customer/_git/metlifecl_dc_adn_ts_react_web_svc/pullrequests?_a=active";
             const screenshot = await takeScreenshot(url);
-            const file = '/Users/lpaz/Desktop/discord/' + screenshot
+            const file = `${process.env.FILE_PATH}${screenshot}`
             const attachment = new AttachmentBuilder(file, { name: screenshot });
             await interaction.editReply({ content: 'Tuve que convertirme en kevin mitnick por un momento, para entrar a la VPN y traer tus PRs, Aqui estan. (Frontend Pull Requests) ', files: [attachment] });
             await fs.unlink(file)
@@ -65,7 +65,7 @@ client.on('interactionCreate', async interaction => {
         try {
             const url = "https://dev.azure.com/MetLife-Global/Chile%20Digital%20Customer/_git/metlifecl_dc_adn_ts_nestjs_api_svc/pullrequest/pullrequests?_a=active";
             const screenshot = await takeScreenshot(url);
-            const file = '/Users/lpaz/Desktop/discord/' + screenshot
+            const file = `${process.env.FILE_PATH}${screenshot}`
             const attachment = new AttachmentBuilder(file, { name: screenshot });
             await interaction.editReply({ content: 'Tuve que convertirme en kevin mitnick por un momento, para entrar a la VPN y traer tus PRs, Aqui estan. (Backend Pull Requests)', files: [attachment] });
             await fs.unlink(file)
@@ -83,7 +83,7 @@ client.on('interactionCreate', async interaction => {
             const url = `https://dev.azure.com/MetLife-Global/Chile%20Digital%20Customer/_git/metlifecl_dc_adn_ts_react_web_svc/pullrequest/${prNumber}`
             await clickElementByXPath(url, selector, 'Approve')
             const screenshot = await takeScreenshot(url);
-            const file = '/Users/lpaz/Desktop/discord/' + screenshot
+            const file = `${process.env.FILE_PATH}${screenshot}`
             const attachment = new AttachmentBuilder(file, { name: screenshot });
             await interaction.editReply({ content: `PR: ${prNumber} fue Aprobado. Esto es experimental; Debes verificar!`, files: [attachment] });
             await fs.unlink(file)
@@ -101,7 +101,7 @@ client.on('interactionCreate', async interaction => {
             const url = `https://dev.azure.com/MetLife-Global/Chile%20Digital%20Customer/_git/metlifecl_dc_adn_ts_nestjs_api_svc/pullrequest/${prNumber}`;
             await clickElementByXPath(url, selector, 'Approve')
             const screenshot = await takeScreenshot(url);
-            const file = '/Users/lpaz/Desktop/discord/' + screenshot
+            const file = `${process.env.FILE_PATH}${screenshot}`
             const attachment = new AttachmentBuilder(file, { name: screenshot });
             await interaction.editReply({ content: `PR: ${prNumber} fue Aprobado. Esto es experimental; Debes verificar!`, files: [attachment] });
             await fs.unlink(file)
