@@ -4,7 +4,7 @@ import crypto from 'crypto'
 import fs from 'fs/promises'
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const TOKEN = "MTE3Njc0NTMwMzg0ODc4ODA0OA.G7fBaX.goIyaWZ2Y7kawdz1KyJGrZd5mlFk9c2TmZGAcs"
+const TOKEN = process.env.TOKEN
 
 async function takeScreenshot(url) {
     try {
